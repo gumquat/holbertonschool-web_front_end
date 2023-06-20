@@ -502,8 +502,8 @@ h1, h2, h3, h4, h5, h6 {
 .card-testimonial .card-quote{
     position: relative;
 }
-.card-testimonial .card-quote:before{
-    content: \201C;
+.card-testimonial .card-quote::before{
+    content: "\201C";
     position: absolute;
     top: -4.5rem;
     left: -1rem;
