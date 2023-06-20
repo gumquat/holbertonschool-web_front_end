@@ -488,7 +488,7 @@ h1, h2, h3, h4, h5, h6 {
     list-style: none;
     text-align: center;
 }
-.nav-item{
+.nav .nav-item{
     font-family: var(nav-item-font-family);
     font-weight: var(nav-item-font-weight);
     font-size: var(nav-item-font-size);
