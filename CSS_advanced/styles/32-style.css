@@ -536,6 +536,7 @@ h1, h2, h3, h4, h5, h6 {
     left: -0.1rem;
     right: -0.1rem;
     z-index: 1;
+    transition: var(--transition-duration) var(--transition-cubic-bezier);
 }
 .card-work:hover .card-inner{
     background-color: rgba(0, 0, 0, 0.7);
@@ -714,7 +715,7 @@ ul.row{
     color: var(--button-hover-color);
     text-decoration: var(--button-hover-text-decoration);
     background: var(--button-hover-background);
-    transition: var(--transition-duration);
+    transition-duration: var(--transition-duration);
     transition-property: color, background-color;
 }
 .section-hero{
