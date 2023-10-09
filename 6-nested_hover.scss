@@ -1,0 +1,12 @@
+/* 6-nested_hover */
+
+$r: #FF0000;
+$gr: #00FF00;
+
+button {
+  color: $r;
+
+  &:hover {
+    color: $gr;
+  }
+}

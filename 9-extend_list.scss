@@ -1,0 +1,17 @@
+/* 9-extended_lsit */
+
+$r: #FF0000;
+$gr: #00FF00;
+
+.info {
+  font-size: 12px;
+}
+.success {
+  @extend .info;
+  color: $gr;
+}
+
+.warning {
+  @extend .info;
+  color: $r;
+}

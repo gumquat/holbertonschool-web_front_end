@@ -1,0 +1,9 @@
+/* 11-loop_photos */
+
+@import "11-photos";
+
+@each $photo in $11-photos {
+  .photo-#{$photo} {
+    background: image-url("photos/#{$photo}.jpg") no-repeat;
+  }
+}

@@ -1,0 +1,12 @@
+/* 4-nested_class */
+
+$g: #3D3D3D;
+$r: #FF0000;
+
+body {
+  color: $g;
+
+  .red {
+    color: $r;
+  }
+}

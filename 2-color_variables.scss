@@ -1,0 +1,16 @@
+/* 2-color_variable */
+$a: #3D3D3D;
+$b: #6D6D6D;
+
+body {
+  color: $a;
+  background-color: $b;
+}
+
+p {
+  color: $a;
+}
+
+h2 {
+  background-color: $b;
+}
