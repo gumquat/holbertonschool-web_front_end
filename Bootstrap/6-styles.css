@@ -1,0 +1,47 @@
+/*NOTE: The '!important' tag can override all other stylings*/
+/*NOTE: The '!important' tag can override all other stylings*/
+/*NOTE: The '!important' tag can override all other stylings*/
+
+.btn-primary {
+  background-color: #E0003C !important;
+}
+
+.btn-primary:hover {
+  background-color: #BC1340 !important;
+}
+.btn-primary:focus {
+  background-color: #BC1340 !important;
+}
+btn-primary:active {
+  background-color: #BC1340 !important;
+}
+
+.btn-outline-primary {
+  border-color: #E0003C !important;
+  color: #E0003C;
+}
+
+.btn-outline-primary:hover {
+  background-color: #E0003C !important;
+  border-color: #E0003C !important;
+  color: #fff !important;
+}
+
+a, a:hover, a:focus {
+  color: #E0003C !important;
+}
+
+.card, .card-footer {
+  border: #E0003C 1px solid !important;
+  border-radius: 1rem;
+}
+
+.card-header {
+  background-color: #E0003C !important;
+  color: #fff;
+  border-radius: 1rem 1rem 0rem 0rem;
+}
+
+.text-muted {
+  color: #8C8C8C !important;
+}

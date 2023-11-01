@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>Holberton - Web Stack - Bootstrap</title>
+        <meta name="description" content="Bootstrap is a free and open-source CSS framework">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+
+    <body class="text-white text-center">
+      <!--
+          Padding at .5rem
+          Background color of the name of the cell
+          Text centered and white
+      -->
+        <div class="container-fluid p-2">
+
+          <!--SECTION 1-->
+          <!--
+            Each cell has the same width
+            Screen >= 992px: display like 4 columns in one line
+            Screen < 992px: display like 4 lines in one column
+          -->
+          <div class="row">
+            <div class="col-lg bg-primary">Primary</div>
+            <div class="col-lg bg-success">Success</div>
+            <div class="col-lg bg-danger">Danger</div>
+            <div class="col-lg bg-warning">Warning</div>
+          </div>
+
+          <hr />
+          <!--SECTION 2-->
+          <!--
+            Each cell has the same width
+            Screen >= 576px: display like 4 columns in one line
+            Screen < 576px: display like 4 lines in one column
+          -->
+          <div class="row">
+            <div class="col-sm bg-primary">Primary</div>
+            <div class="col-sm bg-success">Success</div>
+            <div class="col-sm bg-danger">Danger</div>
+            <div class="col-sm bg-warning">Warning</div>
+          </div>
+
+          <hr />
+          <!--SECTION 3-->
+          <!--
+            The last cell is taking 50% of the width screen
+            The middle cell has 2 times the size of the first cell
+            Screen >= 992px: display like 3 columns in one line
+            Screen < 992px: display like 3 lines in one column
+          -->
+          <div class="row">
+            <div class="col-lg-2 col-sm-12 bg-primary">Primary</div>
+            <div class="col-lg-4 col-sm-12 bg-success">Success</div>
+            <div class="col-lg-6 col-sm-12 bg-danger">Danger</div>
+          </div>
+
+          <hr />
+          <!--SECTION 4-->
+          <!--    
+            Different order (from left to right) based on the size
+            Screen >= 1200px: Primary -> Success -> Danger -> Warning
+            Screen between 992px and 1200px: Warning -> Primary -> Success -> Danger
+            Screen between 768px and 992px: Danger -> Warning -> Primary -> Success
+            Screen <= 768px: Success -> Danger -> Warning -> Primary
+          -->
+
+          <div class="row">
+            <div class="bg-primary col-3 order-xl-1 order-lg-2 order-md-3 order-4">Primary</div>
+            <div class="bg-success col-3 order-xl-2 order-lg-3 order-md-4 order-1">Success</div>
+            <div class="bg-danger col-3 order-xl-3 order-lg-4 order-md-1 order-2">Danger</div>
+            <div class="bg-warning col-3 order-xl-4 order-lg-1 order-md-2 order-3">Warning</div>
+          </div>
+
+          <hr/>
+          <!--SECTION 5-->
+          <!--
+            Each cell has the same width (~16% of the screen)
+            Screen >= 768px: display like 2 columns on each side of the screen in one line
+            Screen < 768px: display like 2 lines in one column
+          -->
+          <div class="row justify-content-between">
+            <div class="bg-primary col-12 col-md-2">Primary</div>
+            <div class="bg-success col-12 col-md-2">Success</div>
+          </div>
+
+          <hr/>
+          <!--SECTION 6-->
+          <!--
+            Each cell has the same width (~16% of the screen)
+            Screen >= 768px: display like 3 columns in one line...
+            ...with the space between the first and middle cell 2 times...
+            ...bigger than the space between the middle cell and the last cell
+            Screen < 768px: display like 3 lines in one column
+          -->
+          <div class="row">
+            <div class="bg-primary col-12 col-md-2">Primary</div>
+            <div class="bg-success col-12 col-md-2 offset-md-4">Success</div>
+            <div class="bg-danger col-12 col-md-2 offset-md-2">Danger</div>
+          </div>
+
+        </div> <!--end fluid container div-->
+
+    </body>
+</html>
