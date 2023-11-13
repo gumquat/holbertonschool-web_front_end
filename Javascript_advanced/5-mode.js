@@ -19,7 +19,6 @@ function main() {
   document.body.innerHTML += '<p>Welcome Holberton!</p>';
 
   /* BUTTONS */
-
   const spookyButton = document.createElement('button');
   spookyButton.textContent = 'Spooky';
   spookyButton.onclick = spooky;
