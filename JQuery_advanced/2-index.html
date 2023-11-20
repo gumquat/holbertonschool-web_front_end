@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Task 2</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script>
+      function createFamilyTree() {
+        var treeTable = $("<table><thead><tr><th>Firstname</th><th>Lastname</th></tr></thead><tbody><tr><td>Guillaume</td><td>Salva</td></tr><tr><td>Paulette</td><td>Salva</td></tr><tr><td>Antoine</td><td>Salva</td></tr></tbody></table>");
+
+        $("body").append(treeTable);
+    }
+    </script>
+  </head>
+
+  <body>
+    <p>Click the following button to see the function in action</p>  
+      <input type = "button" onclick = "createFamilyTree()" value = "Display"> 
+  </body>
+
+</html>
