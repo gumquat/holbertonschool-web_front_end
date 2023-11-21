@@ -9,16 +9,20 @@
 <body>
   <script>
 
+    //this is like what is in the store
     let availableItems = [];
     availableItems.push('Shampoo', 'Soap', 'Sponge', 'Water');
 
+    //checking if the browser supports Web storage
     if (typeof(Storage) === 'undefined') {
       alert('Sorry, your browser does not support Web storage.  Try again with a better one');
     } else {
+      //create the store and display the cart
       createStore();
       displayCart();
     }
 
+    //function gets the cart from session storage
     function getCartFromStorage() {
       let cart = sessionStorage.getItem('cart');
       if (!cart) {
@@ -27,6 +31,7 @@
       return JSON.parse(cart);
     }
 
+    //adds an item to the cart (attach to a button)
     function addItemToCart(item) {
       let cart = getCartFromStorage();
       if (cart[item]) {
@@ -38,6 +43,7 @@
       displayCart();
     }
 
+    //function to remove an item from the cart (attach to a button)
     function removeItemfromCart(item) {
       let cart = getCartFromStorage();
       if (cart[item]) {
@@ -47,11 +53,13 @@
       }
     }
 
+    //function that clears the cart (attach to a button)
     function clearCart() {
       sessionStorage.clear();
       displayCart();
     }
 
+    //creates the store (aka make the items appear on webpage)
     function createStore() {
       let store = document.createElement('ul');
 
@@ -67,6 +75,7 @@
       document.body.appendChild(store);
     }
 
+    // formatting and presenting the cart and its items on webpage
     function displayCart() {
       let cartHeader = document.getElementById('cartHeader');
       if (!cartHeader) {
@@ -86,20 +95,22 @@
         cartDiv.id = 'cart';
         document.body.appendChild(cartDiv);
       }
-
+      //this needs to run any time something changes in the cart
       updateCart();
     }
 
+    //this will be used to update the cart after changes are made
     function updateCart() {
       let cartDiv = document.getElementById('cart');
       let cart = getCartFromStorage();
       let cartList = document.createElement('ul');
-
+      //if cart is empty, display 'You cart is empty'
       if (Object.keys(cart).length === 0) {
         let emptyItem = document.createElement('li');
         emptyItem.textContent = 'Your cart is empty';
         cartList.appendChild(emptyItem);
       } else {
+        //create a list item to make a button to clear the cart
         let clearItem = document.createElement('li');
         clearItem.textContent = 'Clear my cart';
         clearItem.onclick = function () {
@@ -107,6 +118,7 @@
         };
         cartList.appendChild(clearItem);
 
+        //loop thru the items in the cart and create a list item for each one
         for (let item in cart) {
           let itemLi = document.createElement('li');
           itemLi.textContent = `${item} x ${cart[item]} `;
@@ -120,7 +132,7 @@
           cartList.appendChild(itemLi);
         }
       }
-
+      //append the cart list to the cart div
       cartDiv.appendChild(cartList);
     }
 
