@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+
+      <meta charset="utf-8" />
+      <title>Task 7</title>
+
+  </head>
+
+<body>
+
+  <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+      
+    function createSearchForm() {
+      //create HTML form with text input and a submit button
+      const searchInput = $('<input type="text" id="searchInput" />');
+      const submitButton = $('<input type="submit" value="Search"></button>');
+
+      //clicking search button runs queryWikipedia
+      submitButton.click(function() {
+        queryWikipedia(searchInput.val());
+      });
+
+      //creates an ampty unordered list
+      var emptyUl = $('<ul></ul>');
+
+      //this puts the buttons on the body of the page
+      $('body').append(searchInput, submitButton, emptyUl);
+    }
+
+    function addNewArticle(id, title, snippet) {
+      //create a new list item with the passed id, title, and snippet
+      const newLi = $(`<li><p><span>${id} -<b>${title}</span></p><p>${snippet}</p></li>`);
+        //appends it to the first unordered list in the document, aka underneath the id and title
+        $('ul:first').append(newLi);
+    }
+
+    function queryWikipedia(search) {
+      $.ajax({ //this makes the query request 'more gooder'
+        url: `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${search}&format=json`,
+        type: 'GET',
+        dataType: 'jsonp',
+        success: function(data) {
+          //loop over each article in the data
+          data.query.search.forEach(function(article) {
+            //call addNewArticvel to put the data on the webpage
+              addNewArticle(article.pageid, article.title, article.snippet);
+        });
+      }});
+    }
+
+    //calls createSearchForm when the page loads
+    $(document).ready(function() {
+        createSearchForm();
+    });
+
+  </script>
+
+</body>
+
+</html>
