@@ -38,18 +38,19 @@
     //added from TASK 3
     function showWelcomeMessageOrForm() {
       const firstname = Cookies.get('firstname');
-      if (!firstname) {
+      if (!firstname && !email) {
         showForm();
       } else {
+        //changed to add to page by innerHTML
         const h1 = document.createElement('h1');
         h1.id = 'welcome-message';
         h1.innerHTML = `Welcome ${firstname}`;
-        const logoutLink = document.createElement('span');
+        const logoutLink = document.createElement('a');
         logoutLink.innerHTML = '(logout)';
-        logoutLink.style.cursor = 'pointer';
         logoutLink.style.fontWeight = 'normal';
         logoutLink.style.fontStyle = 'italic';
         logoutLink.style.marginLeft = '10px';
+        //changed to be simpler, aka all on one line
         logoutLink.onclick = deleteCookiesAndShowForm; //no () cuz its an event handler not a function call
         h1.appendChild(logoutLink);
         document.body.appendChild(h1);
@@ -60,6 +61,7 @@
     function setCookiesAndShowWelcomeMessage() {
       const firstname = document.querySelector('#firstname').value;
       const email = document.querySelector('#email').value;
+
       Cookies.set('firstname', firstname, { expires: 10 });
       Cookies.set('email', email, { expires: 10 });
       hideForm();
