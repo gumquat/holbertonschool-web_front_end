@@ -18,19 +18,22 @@
   
   <script>
     function setCookies() {
-      //added from TASK 1
-      const d = new Date();
-      d.setTime(d.getTime() + (7 * 24 * 60 * 60 * 1000)); //thats a week til expiring
-      document.cookie = `expires=${d.toUTCString()}`;
       document.cookie = `firstname=${document.querySelector('#firstname').value}`;
       document.cookie = `email=${document.querySelector('#email').value}`;
+      
+      //added from TASK 1
+      const d = new Date();
+      d.setTime(d.getTime() + (10 * 24 * 60 * 60 * 1000)); //makes it expire in 10 days
+      document.cookie = `expires=${d.toUTCString()}`;
     }
 
     function showCookies() {
-      const p = document.createElement('p');
-      p.innerHTML = `Cookies: ${document.cookie}`;
-      document.body.appendChild(p);
+      let cookies = document.cookie; //cookies can be read like this, and stored in a variable
+      let p = document.createElement('p'); //creates a variable paragraph element
+      p.innerHTML = 'COOKIES: ' + cookies; //puts the cookie string into the paragraph variable
+      document.body.appendChild(p);//appends the paragraph with info in it to the document body
     }
+    
   </script>
 </body>
 </html>
