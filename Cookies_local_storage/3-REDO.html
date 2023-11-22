@@ -64,45 +64,62 @@
 
     //added from TASK 3
     function showForm() {
-      const welcomeMessage = document.querySelector('h1'); //querySelector selects h1 elements
+      // Remove the welcome message if it exists
+      const welcomeMessage = document.querySelector('.welcome-message');
       if (welcomeMessage) {
-        welcomeMessage.remove();
+          welcomeMessage.remove();
       }
-      document.querySelector('#form-container').style.display = 'block';
+      // Show the form
+      const form = document.querySelector('#form-container');
+      form.style.display = 'block';
     }
+    
 
     //added from TASK 3
     function hideForm() {
-      document.querySelector('div').style.display = 'none'; //selects divs and makes them not display
-    }
+      // Hide the form
+      const form = document.querySelector('#form-container');
+      form.style.display = 'none';
+    }    
 
     //added from TASK 3
     function deleteCookiesAndShowForm() {
-      document.cookie = "firstname=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-      document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path/;";
+      // Remove the two cookies
+      document.cookie = 'firstname=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      // Show the form
       showForm();
     }
-    //added from TASK 3
-    function showWelcomeMessageOrForm() {
-      const firstname = getCookie('firstname');
-      if (!firstname) {
-        showForm();
-      } else {
-        const h1 = document.createElement('h1');
-        h1.id = 'welcome-message';
-        h1.innerHTML = `Welcome ${firstname}`;
+    
+
+  //added from TASK 3
+  function showWelcomeMessageOrForm() {
+    const firstname = getCookie('firstname');
+    const email = getCookie('email');
+  
+    if (firstname && email) {
+        // User is logged in
+        const welcomeMessage = document.createElement('h1');
+        welcomeMessage.textContent = `Welcome ${firstname} `;
+        document.body.appendChild(welcomeMessage);
+  
         const logoutLink = document.createElement('a');
-        logoutLink.innerHTML = '(logout)';
-        logoutLink.style.cursor = 'pointer';
+        logoutLink.textContent = 'logout';
         logoutLink.style.fontWeight = 'normal';
         logoutLink.style.fontStyle = 'italic';
         logoutLink.style.marginLeft = '10px';
-        logoutLink.onclick = deleteCookiesAndShowForm; //no () cuz its an event handler not a function call
-        h1.appendChild(logoutLink);
-        document.body.appendChild(h1);
-      }
+        logoutLink.href = '#';
+        logoutLink.onclick = function() {
+            deleteCookiesAndShowForm();
+            welcomeMessage.remove();
+            showForm();
+        };
+        welcomeMessage.appendChild(logoutLink);
+    } else {
+        // User is not logged in
+        showForm();
     }
-    showWelcomeMessageOrForm();
+  }
 
   </script>
 </body>
