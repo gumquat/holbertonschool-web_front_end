@@ -23,12 +23,13 @@
     }
 
     //function gets the cart from session storage
-    function getCartFromStorage() {
-      let cart = sessionStorage.getItem('cart');
+    function getCartFromStorage() { //no need to pass an argument
+      let cart = sessionStorage.getItem('cart'); 
+
       if (!cart) {
         return {};
       }
-      return JSON.parse(cart);
+      return JSON.parse(cart); //return string from sessionStorage turned to a JSON object
     }
 
     //adds an item to the cart (attach to a button)
@@ -61,8 +62,11 @@
 
     //creates the store (aka make the items appear on webpage)
     function createStore() {
-      let store = document.createElement('ul');
+      let storeHeader= document.createElement('h1');
+      storeHeader.textContent = 'Available Products: ';
+      document.body.appendChild(storeHeader);
 
+      let store = document.createElement('ul');
       for (let item of availableItems) {
         let li = document.createElement('li');
         li.textContent = item;
@@ -71,7 +75,6 @@
         };
         store.appendChild(li);
       }
-
       document.body.appendChild(store);
     }
 
@@ -123,7 +126,6 @@
           let itemLi = document.createElement('li');
           itemLi.textContent = `${item} x ${cart[item]} `;
           let removeButton = document.createElement('span');
-          removeButton.style.cursor = 'pointer';
           removeButton.textContent = '(remove)';
           removeButton.onclick = function () {
             removeItemfromCart(item);
